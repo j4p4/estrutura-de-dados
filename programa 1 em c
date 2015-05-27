@@ -1,0 +1,181 @@
+#include <stdio.h>
+
+
+typedef struct no{
+    int codigo;
+    char nome[10];
+    struct no *next;
+} no;
+
+struct no *inicio, *corrente, *auxiliar;
+int achou, xcod;
+enterData()
+{
+    printf("Entre com o codigo: ");
+    scanf("%d",&corrente->codigo);
+
+    printf("Entre com o nome: ");
+    scanf("%s",&corrente->nome);
+}
+
+insert(no **lista)
+{
+    if(inicio == NULL)
+    {
+        corrente = (no*)malloc(sizeof(no));  //Aloca memória
+        corrente->next = NULL;
+        auxiliar = corrente;
+        inicio = corrente;
+        enterData();
+    }
+    else
+    {
+        corrente = (no*)malloc(sizeof(no));
+        auxiliar->next = corrente;
+        corrente->next = NULL;
+        auxiliar = corrente;
+        enterData();
+    }
+}
+
+pesquisar(no **lista)
+{
+    if(inicio == NULL)
+    {
+        printf("\nLista vazia...");
+        system("pause");
+
+    }else{
+        auxiliar = inicio;
+        achou = 0;
+        printf("Entre com o codigo o ser Recuperado..\n");
+        scanf("%i", &xcod);
+        while(auxiliar != NULL)
+        {
+            if (auxiliar ->codigo == xcod)
+            {
+                printf("codigo: %i\n", auxiliar ->codigo);
+                printf("nome: %s\n\n", auxiliar ->nome);
+                system("pause");
+                achou = 1;
+                break;
+            }else{
+               auxiliar = auxiliar->next;
+            }
+        }
+        if(achou == 0)
+            {
+                printf("\nRegistro não encontrado");
+            }
+            }
+}
+
+remover(no **lista)
+{
+    if (inicio == NULL){
+        printf("Lista vazia...");
+        system("pause");
+    }else{
+        printf("Entre com o codigo a ser Removido..");
+        scanf("%i", &xcod);
+        achou = 0;
+        auxiliar = inicio;
+    }
+    if ( auxiliar == xcod){
+        inicio = inicio->next;
+        achou = 1;
+        free(auxiliar);
+        printf("Removido no inicio da lista..");
+        system("pause");
+    }else{
+        corrente = auxiliar->next;
+        while (corrente != NULL){
+            if(corrente->codigo == xcod){
+                auxiliar->next = corrente->next;
+                achou = 1;
+                free(corrente);
+                printf("Removido do meio/fim da lista");
+                system("pause");
+            }else{
+                auxiliar = auxiliar->next;
+                corrente = corrente->next;
+            }
+        }
+    }
+    if (achou == 0){
+        printf("Registro nao consta na lista");
+        system("pause");
+    }
+}
+insertduplamenteencadeada{
+}
+    if(inicio==NULL)
+    {
+        Corrente=(no*)malloc(sizeof(no));
+        auxiliar=corrente;
+        inicio=corrente;
+        FIM=Corrente;
+        Corrente->next=NULL;
+        Corrente->back=NULL;
+        Enterdata();
+    }
+    else{
+        Corrente=(no*)malloc(sizeof(no));
+        auxiliar->next=Corrente;
+        Corrente->back=auxiliar;
+        auxiliar=Corrente;
+        FIM=Corrente;
+        Corrent->next=NULL;
+        Enterdata();
+    }
+}
+}
+remocaoduplamenteencadeada{
+if (inicio == NULL){
+    printf("Lista vazia...");
+    System("pause");
+}else{
+    printf("Entre com o codigo a ser removido...");
+    scanf("%i", &xcod);
+    achou = 0;
+    auxiliar = inicio;
+}
+if (auxiliar -> codigo = xcod){
+    inicio=inicio->next;
+    achou = 1;
+    free(auxiliar);
+    inicio->back = NULL;
+    printf("Registro removido no inicio da lista...");
+    System("pause");
+}else{
+    corrente=auxiliar->next;}
+    while (corrente->next=NULL)
+    {
+        if (corrente->codigo == xcod)
+        {
+            corrente=corrente->next;
+            corrente->back = auxiliar;
+            corrente = auxiliar->next;
+            auxiliar->next = corrente->next;
+            free(corrente);
+            printf("Registro removido no meio da lista");
+            system("pause");
+            achou = 1;
+            break;
+        }else{
+            auxiliar=auxiliar->next;
+            corrente=corrente->next;
+        }
+    }
+}
+}
+main()
+{
+    int a = 1;
+    inicio = NULL;
+    corrente = NULL;
+    auxiliar = NULL;
+    insert(&inicio);
+    pesquisar(&inicio);
+    remover(&inicio);
+}
